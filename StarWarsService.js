@@ -4,7 +4,7 @@ const getPlanets = async (planetsIds = []) => {
   const requestPromises = []
   const responsePromises = []
 
-  for (const [i, planetId] of planetsIds.entries()) {
+  for (const planetId of planetsIds) {
     requestPromises.push(fetch(`${apiUrl}/planets/${planetId}`))
   }
 

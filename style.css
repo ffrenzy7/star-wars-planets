@@ -47,6 +47,10 @@ body {
 }
 
 .content {
+  display: none;
+}
+
+.isActive {
   align-items: center;
   display: flex;
   gap: 100px;

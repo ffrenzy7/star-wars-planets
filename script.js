@@ -1,22 +1,19 @@
 import { getPlanets } from './StarWarsService.js'
 
 const insertPlanetData = async () => {
-  const previous = document.querySelector('.previous')
-  const next = document.querySelector('.next')
+  const previousButton = document.querySelector('.previous')
+  const nextButton = document.querySelector('.next')
   const container = document.querySelector('.container')
+
   const planets = await getPlanets([1, 4, 8, 9, 10, 11, 13, 14, 17, 36])
+  let index = 0
 
-  const arrowNavigation = () => {
-    // FAZER ALGUMA CARNICA AQUI PRA SETA FUNFAR
-  }
-
-  // previous.addEventListener('click', bunda())
-  // next.addEventListener('click', bunda())
-
-  for (const planet of planets) {
+  for (const [i, planet] of planets.entries()) {
     container.innerHTML += `
-      <div class="content">
-        <img class="planet" src="./assets/planet-placeholder.webp" alt="" />
+      <div class="content ${i === index ? 'isActive' : ''}">
+        <img class="planet" src="./assets/${planet.name}.png" alt="${
+      planet.name
+    }" />
 
         <div class="text">
           <h1 class="title">${planet.name}</h1>
@@ -31,6 +28,41 @@ const insertPlanetData = async () => {
       </div>
     `
   }
+
+  const contents = document.querySelectorAll('.content')
+
+  const updateActivePlanet = () => {
+    for (const [i, content] of contents.entries()) {
+      if (i === index) {
+        content.classList.add('isActive')
+      } else {
+        content.classList.remove('isActive')
+      }
+    }
+  }
+
+  const previous = () => {
+    if (index - 1 < 0) {
+      index = planets.length - 1
+    } else {
+      index--
+    }
+
+    updateActivePlanet()
+  }
+
+  const next = () => {
+    if (index + 1 >= planets.length) {
+      index = 0
+    } else {
+      index++
+    }
+
+    updateActivePlanet()
+  }
+
+  previousButton.addEventListener('click', previous)
+  nextButton.addEventListener('click', next)
 }
 
 insertPlanetData()
