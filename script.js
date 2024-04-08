@@ -6,10 +6,12 @@ const insertPlanetData = async () => {
   const container = document.querySelector('.container')
 
   const planets = await getPlanets([1, 4, 8, 9, 10, 11, 13, 14, 17, 36])
+
+  let planetData = ''
   let index = 0
 
   for (const [i, planet] of planets.entries()) {
-    container.innerHTML += `
+    planetData += `
       <div class="content ${i === index ? 'isActive' : ''}">
         <img class="planet" src="./assets/${planet.name}.png" alt="${
       planet.name
@@ -28,6 +30,8 @@ const insertPlanetData = async () => {
       </div>
     `
   }
+
+  container.innerHTML = planetData
 
   const contents = document.querySelectorAll('.content')
 

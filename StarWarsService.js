@@ -1,24 +1,22 @@
 const apiUrl = 'https://swapi.dev/api'
 
 const getPlanets = async (planetsIds = []) => {
-  const requestPromises = []
-  const responsePromises = []
+  const requestsData = []
+  const requestsJson = []
 
   for (const planetId of planetsIds) {
-    requestPromises.push(fetch(`${apiUrl}/planets/${planetId}`))
+    requestsData.push(fetch(`${apiUrl}/planets/${planetId}`))
   }
 
-  const responses = await Promise.all(requestPromises)
+  const responsesData = await Promise.all(requestsData)
 
-  for (const response of responses) {
-    responsePromises.push(response.json())
+  for (const responseData of responsesData) {
+    requestsJson.push(responseData.json())
   }
 
-  const objects = await Promise.all(responsePromises)
+  const planetsData = await Promise.all(requestsJson)
 
-  console.log(objects)
-
-  return objects
+  return planetsData
 }
 
 export { getPlanets }
