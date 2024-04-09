@@ -1,9 +1,9 @@
 import { getPlanets } from './StarWarsService.js'
 
 const insertPlanetData = async () => {
-  const previousButton = document.querySelector('.previous')
-  const nextButton = document.querySelector('.next')
-  const container = document.querySelector('.container')
+  const previousButton = document.querySelector('.previous-button')
+  const nextButton = document.querySelector('.next-button')
+  const sliderWrapper = document.querySelector('.slider-wrapper')
 
   const planets = await getPlanets([1, 4, 8, 9, 10, 11, 13, 14, 17, 36])
 
@@ -12,12 +12,12 @@ const insertPlanetData = async () => {
 
   for (const [i, planet] of planets.entries()) {
     planetData += `
-      <div class="content ${i === index ? 'isActive' : ''}">
-        <img class="planet" src="./assets/${planet.name}.png" alt="${
+      <div class="slider ${i === index ? 'isActive' : ''}">
+        <img class="planet-image" src="./assets/${planet.name}.png" alt="${
       planet.name
     }" />
 
-        <div class="text">
+        <div class="content">
           <h1 class="title">${planet.name}</h1>
 
           <ul class="description">
@@ -31,16 +31,16 @@ const insertPlanetData = async () => {
     `
   }
 
-  container.innerHTML = planetData
+  sliderWrapper.innerHTML = planetData
 
-  const contents = document.querySelectorAll('.content')
+  const sliders = document.querySelectorAll('.slider')
 
   const updateActivePlanet = () => {
-    for (const [i, content] of contents.entries()) {
+    for (const [i, slider] of sliders.entries()) {
       if (i === index) {
-        content.classList.add('isActive')
+        slider.classList.add('isActive')
       } else {
-        content.classList.remove('isActive')
+        slider.classList.remove('isActive')
       }
     }
   }

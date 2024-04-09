@@ -10,7 +10,7 @@ body {
   font-size: 30px;
 }
 
-.slider {
+.container {
   align-items: center;
   background-image: url('./assets/space-bg.jpg');
   background-size: cover;
@@ -32,21 +32,21 @@ body {
   z-index: 1;
 }
 
-.previous {
+.previous-button {
   left: 0;
 }
 
-.next {
+.next-button {
   right: 0;
 }
 
-.container {
+.slider-wrapper {
   height: 100%;
   position: relative;
   width: 100%;
 }
 
-.content {
+.slider {
   display: none;
 }
 
@@ -61,6 +61,6 @@ body {
   width: 900px;
 }
 
-.planet {
+.planet-image {
   width: 400px;
 }
