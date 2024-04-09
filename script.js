@@ -4,10 +4,12 @@ const insertPlanetData = async () => {
   const previousButton = document.querySelector('.previous-button')
   const nextButton = document.querySelector('.next-button')
   const sliderWrapper = document.querySelector('.slider-wrapper')
+  const sliderNav = document.querySelector('.slider-nav')
 
   const planets = await getPlanets([1, 4, 8, 9, 10, 11, 13, 14, 17, 36])
 
   let planetData = ''
+  let navData = ''
   let index = 0
 
   for (const [i, planet] of planets.entries()) {
@@ -29,18 +31,26 @@ const insertPlanetData = async () => {
         </div>
       </div>
     `
+
+    navData += `<button class="nav-button ${
+      i === index ? 'isActive' : ''
+    }" data-index="${i}"></button>`
   }
 
   sliderWrapper.innerHTML = planetData
+  sliderNav.innerHTML = navData
 
   const sliders = document.querySelectorAll('.slider')
+  const navButtons = document.querySelectorAll('.nav-button')
 
   const updateActivePlanet = () => {
     for (const [i, slider] of sliders.entries()) {
       if (i === index) {
         slider.classList.add('isActive')
+        navButtons[i].classList.add('isActive')
       } else {
         slider.classList.remove('isActive')
+        navButtons[i].classList.remove('isActive')
       }
     }
   }
@@ -65,8 +75,20 @@ const insertPlanetData = async () => {
     updateActivePlanet()
   }
 
+  const navigate = (event) => {
+    const navIndex = Number(event.target.dataset.index)
+
+    index = navIndex
+
+    updateActivePlanet()
+  }
+
   previousButton.addEventListener('click', previous)
   nextButton.addEventListener('click', next)
+
+  for (const navButton of navButtons) {
+    navButton.addEventListener('click', navigate)
+  }
 }
 
 insertPlanetData()

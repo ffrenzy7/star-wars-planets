@@ -10,6 +10,10 @@ body {
   font-size: 30px;
 }
 
+ul {
+  list-style: none;
+}
+
 .container {
   align-items: center;
   background-image: url('./assets/space-bg.jpg');
@@ -40,6 +44,37 @@ body {
   right: 0;
 }
 
+.slider-nav {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.nav-button {
+  background-color: white;
+  border-radius: 20%;
+  cursor: pointer;
+  height: 28px;
+  opacity: 0.28;
+  transition: ease-in-out 0.3s;
+  transition-property: background-color, opacity, transform;
+  width: 20px;
+}
+
+.nav-button:hover,
+.nav-button.isActive {
+  opacity: 0.8;
+  transform: scaleY(1.5);
+}
+
+.nav-button.isActive {
+  background-color: yellow;
+}
+
 .slider-wrapper {
   height: 100%;
   position: relative;
@@ -47,20 +82,32 @@ body {
 }
 
 .slider {
-  display: none;
-}
-
-.isActive {
   align-items: center;
   display: flex;
   gap: 100px;
   left: 50%;
+  opacity: 0;
+  pointer-events: none;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 900px;
 }
 
+.slider.isActive {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .planet-image {
   width: 400px;
+}
+
+.content {
+}
+
+.title {
+}
+
+.description {
 }
