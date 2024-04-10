@@ -23,10 +23,12 @@ const insertPlanetData = async () => {
           <h1 class="title">${planet.name}</h1>
 
           <ul class="description">
-            <li>Diameter: ${planet.diameter}</li>
-            <li>Rotation period: ${planet.rotation_period}</li>
-            <li>Population: ${planet.population}</li>
-            <li>Climate: ${planet.climate}</li>
+            <li><strong>Diameter:</strong> ${planet.diameter}km</li>
+            <li><strong>Rotation period:</strong> ${
+              planet.rotation_period
+            }h</li>
+            <li><strong>Population:</strong> ${planet.population}</li>
+            <li><strong>Climate:</strong> ${planet.climate}</li>
           </ul>
         </div>
       </div>
