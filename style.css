@@ -119,10 +119,18 @@ ul {
   font-family: 'Oswald', sans-serif;
   font-weight: 200;
   font-size: 80px;
-  transform: translateX(100%);
+  /* transform: translateX(100%); */
   opacity: 0;
   transition: 0.7s ease;
   transition-property: transform, opacity;
+}
+
+.next .title {
+  transform: translateX(100%);
+}
+
+.previous .title {
+  transform: translateX(-100%);
 }
 
 .slider.isActive .title {
@@ -131,16 +139,40 @@ ul {
   transition-delay: 0.3s;
 }
 
+.next .lastActive .title {
+  transform: translateX(-100%);
+}
+
+.previous .lastActive .title {
+  transform: translateX(100%);
+}
+
 .description {
   margin-top: 15px;
-  transform: translateX(100%);
+  /* transform: translateX(100%); */
   opacity: 0;
   transition: 0.7s ease 0.2s;
   transition-property: transform, opacity;
+}
+
+.next .description {
+  transform: translateX(100%);
+}
+
+.previous .description {
+  transform: translateX(-100%);
 }
 
 .slider.isActive .description {
   opacity: 1;
   transform: translateX(0);
   transition-delay: 0.5s;
+}
+
+.next .lastActive .description {
+  transform: translateX(-100%);
+}
+
+.previous .lastActive .description {
+  transform: translateX(100%);
 }
