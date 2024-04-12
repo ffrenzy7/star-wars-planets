@@ -76,12 +76,22 @@ const insertPlanetData = async () => {
         navButtons[i].classList.remove('isActive')
       }
 
-      const isNext = index + 1 >= sliders.length ? 0 : index + 1
-      const isPrevious = index - 1 < 0 ? sliders.length - 1 : index - 1
+      // const isNext = index + 1 >= sliders.length ? 0 : index + 1
+      // const isPrevious = index - 1 < 0 ? sliders.length - 1 : index - 1
 
-      if (i === isNext) {
+      // if (i === isNext) {
+      //   slider.classList.add('next')
+      // } else if (i === isPrevious) {
+      //   slider.classList.add('previous')
+      // } else {
+      //   slider.classList.remove('next', 'previous')
+      // }
+
+      if (i > index) {
+        slider.classList.remove('previous')
         slider.classList.add('next')
-      } else if (i === isPrevious) {
+      } else if (i < index) {
+        slider.classList.remove('next')
         slider.classList.add('previous')
       } else {
         slider.classList.remove('next', 'previous')
