@@ -12,21 +12,44 @@ const insertPlanetData = async () => {
   let navData = ''
   let index = 0
 
+  // for (const [i, planet] of planets.entries()) {
+  //   planetData += `
+  //     <div class="slider ${i === index ? 'isActive' : ''}">
+  //       <img class="planet-image" src="./assets/${planet.name}.png" alt="${
+  //     planet.name
+  //   }" />
+
+  //       <div class="content">
+  //         <h1 class="title">${planet.name}</h1>
+
+  //         <ul class="description">
+  //           <li><strong>Diameter:</strong> ${planet.diameter}km</li>
+  //           <li><strong>Rotation period:</strong> ${
+  //             planet.rotation_period
+  //           }h</li>
+  //           <li><strong>Population:</strong> ${planet.population}</li>
+  //           <li><strong>Climate:</strong> ${planet.climate}</li>
+  //         </ul>
+  //       </div>
+  //     </div>
+  //   `
+
+  //   navData += `<button class="nav-button ${
+  //     i === index ? 'isActive' : ''
+  //   }" data-index="${i}"></button>`
+  // }
+
   for (const [i, planet] of planets.entries()) {
     planetData += `
-      <div class="slider ${i === index ? 'isActive' : ''}">
-        <img class="planet-image" src="./assets/${planet.name}.png" alt="${
-      planet.name
-    }" />
+      <div class="slider">
+        <img class="planet-image" src="./assets/${planet.name}.png" alt="${planet.name}" />
 
         <div class="content">
           <h1 class="title">${planet.name}</h1>
 
           <ul class="description">
             <li><strong>Diameter:</strong> ${planet.diameter}km</li>
-            <li><strong>Rotation period:</strong> ${
-              planet.rotation_period
-            }h</li>
+            <li><strong>Rotation period:</strong> ${planet.rotation_period}h</li>
             <li><strong>Population:</strong> ${planet.population}</li>
             <li><strong>Climate:</strong> ${planet.climate}</li>
           </ul>
@@ -34,9 +57,7 @@ const insertPlanetData = async () => {
       </div>
     `
 
-    navData += `<button class="nav-button ${
-      i === index ? 'isActive' : ''
-    }" data-index="${i}"></button>`
+    navData += `<button class="nav-button" data-index="${i}"></button>`
   }
 
   sliderWrapper.innerHTML = planetData
@@ -45,14 +66,8 @@ const insertPlanetData = async () => {
   const sliders = document.querySelectorAll('.slider')
   const navButtons = document.querySelectorAll('.nav-button')
 
-  const updateActivePlanet = (direction) => {
+  const updateActivePlanet = () => {
     for (const [i, slider] of sliders.entries()) {
-      if (slider.classList.contains('isActive')) {
-        slider.classList.add('lastActive')
-      } else if (slider.classList.contains('lastActive')) {
-        slider.classList.remove('lastActive')
-      }
-
       if (i === index) {
         slider.classList.add('isActive')
         navButtons[i].classList.add('isActive')
@@ -60,11 +75,42 @@ const insertPlanetData = async () => {
         slider.classList.remove('isActive')
         navButtons[i].classList.remove('isActive')
       }
-    }
 
-    sliderWrapper.classList.remove('previous', 'next')
-    sliderWrapper.classList.add(direction)
+      const isNext = index + 1 >= sliders.length ? 0 : index + 1
+      const isPrevious = index - 1 < 0 ? sliders.length - 1 : index - 1
+
+      if (i === isNext) {
+        slider.classList.add('next')
+      } else if (i === isPrevious) {
+        slider.classList.add('previous')
+      } else {
+        slider.classList.remove('next', 'previous')
+      }
+    }
   }
+
+  updateActivePlanet()
+
+  // const updateActivePlanet = (direction) => {
+  //   for (const [i, slider] of sliders.entries()) {
+  //     if (slider.classList.contains('isActive')) {
+  //       slider.classList.add('lastActive')
+  //     } else if (slider.classList.contains('lastActive')) {
+  //       slider.classList.remove('lastActive')
+  //     }
+
+  //     if (i === index) {
+  //       slider.classList.add('isActive')
+  //       navButtons[i].classList.add('isActive')
+  //     } else {
+  //       slider.classList.remove('isActive')
+  //       navButtons[i].classList.remove('isActive')
+  //     }
+  //   }
+
+  //   sliderWrapper.classList.remove('previous', 'next')
+  //   sliderWrapper.classList.add(direction)
+  // }
 
   const previous = () => {
     if (index - 1 < 0) {
