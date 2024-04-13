@@ -97,6 +97,17 @@ const insertPlanetData = async () => {
         slider.classList.remove('next', 'previous')
       }
     }
+
+    const firstSlider = 0
+    const lastSlider = sliders.length - 1
+
+    if (index === lastSlider) {
+      sliders[firstSlider].classList.remove('previous')
+      sliders[firstSlider].classList.add('next')
+    } else if (index === firstSlider) {
+      sliders[lastSlider].classList.remove('next')
+      sliders[lastSlider].classList.add('previous')
+    }
   }
 
   updateActivePlanet()
