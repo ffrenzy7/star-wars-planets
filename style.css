@@ -32,12 +32,16 @@ option {
 .container {
   align-items: center;
   background-image: url('./assets/space-bg.jpg');
-  background-size: cover;
+  /* background-size: cover; */
   display: flex;
   height: 100vh;
   justify-content: center;
   position: relative;
   width: 100%;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 120%;
 }
 
 .arrow {

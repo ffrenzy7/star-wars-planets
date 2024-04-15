@@ -1,13 +1,29 @@
 import { getPlanets } from './StarWarsService.js'
 
+// Background parallax
+
+const container = document.querySelector('.container')
+
+function parallax(event) {
+  let _width = window.innerWidth / 2
+  let _height = window.innerHeight / 2
+  let _mouseX = event.clientX
+  let _mouseY = event.clientY
+  let _depth = `${50 - (_mouseX - _width) * 0.01}% ${
+    50 - (_mouseY - _height) * 0.01
+  }%`
+
+  container.style.backgroundPosition = _depth
+}
+
+document.addEventListener('mousemove', parallax)
+
+// Modal
+
 const modalButton = document.querySelector('.modalButton')
 const modalBackground = document.querySelector('.modalBackground')
 const modal = document.querySelector('.modal')
 const modalCloseButton = document.querySelector('.modalCloseButton')
-
-modalButton.addEventListener('click', openModal)
-modalBackground.addEventListener('click', closeModal)
-modalCloseButton.addEventListener('click', closeModal)
 
 function openModal() {
   modal.classList.add('isVisible')
@@ -18,6 +34,12 @@ function closeModal() {
   modal.classList.remove('isVisible')
   modalBackground.classList.remove('isVisible')
 }
+
+modalButton.addEventListener('click', openModal)
+modalBackground.addEventListener('click', closeModal)
+modalCloseButton.addEventListener('click', closeModal)
+
+// Inserting Planet Data
 
 const insertPlanetData = async () => {
   const previousButton = document.querySelector('.previous-button')
@@ -54,6 +76,8 @@ const insertPlanetData = async () => {
 
   sliderWrapper.innerHTML = planetData
   sliderNav.innerHTML = navData
+
+  // Updating Active Planet and Infinite Slider Logic
 
   const sliders = document.querySelectorAll('.slider')
   const navButtons = document.querySelectorAll('.nav-button')
@@ -93,6 +117,8 @@ const insertPlanetData = async () => {
 
   updateActivePlanet()
 
+  // Arrow navigation
+
   const previous = () => {
     if (index - 1 < 0) {
       index = planets.length - 1
@@ -100,7 +126,7 @@ const insertPlanetData = async () => {
       index--
     }
 
-    updateActivePlanet('previous')
+    updateActivePlanet()
   }
 
   const next = () => {
@@ -110,28 +136,20 @@ const insertPlanetData = async () => {
       index++
     }
 
-    updateActivePlanet('next')
-  }
-
-  const navigate = (event) => {
-    const navIndex = Number(event.target.dataset.index)
-    let direction = ''
-
-    if (index < navIndex) {
-      direction = 'next'
-    } else if (index > navIndex) {
-      direction = 'previous'
-    } else {
-      return
-    }
-
-    index = navIndex
-
-    updateActivePlanet(direction)
+    updateActivePlanet()
   }
 
   previousButton.addEventListener('click', previous)
   nextButton.addEventListener('click', next)
+
+  // Navigation
+
+  const navigate = (event) => {
+    const navIndex = Number(event.target.dataset.index)
+    index = navIndex
+
+    updateActivePlanet()
+  }
 
   for (const navButton of navButtons) {
     navButton.addEventListener('click', navigate)
