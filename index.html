@@ -18,15 +18,95 @@
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
       rel="stylesheet"
     />
+
+    <script
+      src="https://kit.fontawesome.com/b27c44bf74.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <main class="container">
-      <button class="arrow previous-button" type="button"><</button>
-      <button class="arrow next-button" type="button">></button>
+      <nav>
+        <button class="modalButton" type="button">
+          <i class="fa-solid fa-magnifying-glass modalIcon"></i>Find your planet
+          here!
+        </button>
+      </nav>
+
+      <div class="modalBackground"></div>
+
+      <aside class="modal">
+        <button class="modalCloseButton" type="button">X</button>
+
+        <h2 class="modal-title">Find out the planet that best suits you</h2>
+
+        <label class="form">Your name:</label>
+        <input type="text" name="" id="" placeholder="The Chosen One" />
+
+        <label class="form">Your zodiac sign:</label>
+        <select name="" id="">
+          <option value="">Aries</option>
+          <option value="">Taurus</option>
+          <option value="">Gemini</option>
+          <option value="">Cancer</option>
+          <option value="">Leo</option>
+          <option value="">Virgo</option>
+          <option value="">Libra</option>
+          <option value="">Scorpio</option>
+          <option value="">Sagittarius</option>
+          <option value="">Capricorn</option>
+          <option value="">Aquarius</option>
+          <option value="">Pisces</option>
+        </select>
+
+        <label class="form">Choose your path:</label>
+        <input type="radio" name="" id="" /> <label>Jedi</label>
+        <input type="radio" name="" id="" /> <label>Sith</label>
+
+        <label class="form">What do you prefer?</label>
+        <select name="" id="">
+          <option value="">Jabba</option>
+          <option value="">Winter is coming</option>
+          <option value="">Jar Jar Binks</option>
+          <option value="">Tokyo / NY but BIGGER</option>
+          <option value="">Staying hidrated</option>
+          <option value="">Big insects</option>
+          <option value="">The floor is lava</option>
+          <option value="">Welcome To The Jungle</option>
+          <option value="">Shrek</option>
+          <option value="">Literally Hell</option>
+        </select>
+
+        <input class="calculateButton" type="button" value="Calculate!" />
+      </aside>
+
+      <button class="arrow previous-button" type="button">
+        <img
+          class="arrow-icon"
+          src="./assets/xwing-icon.png"
+          alt="Previous Slider"
+          draggable="false"
+        />
+      </button>
+      <button class="arrow next-button" type="button">
+        <img
+          class="arrow-icon"
+          src="./assets/xwing-icon.png"
+          alt="Next Slider"
+          draggable="false"
+        />
+      </button>
 
       <div class="slider-nav"></div>
 
       <div class="slider-wrapper"></div>
+
+      <footer class="api-credits">
+        <p>
+          All this data is dynamically provided by API Integration from:
+          <a href="https://swapi.dev/api">https://swapi.dev/api</a>
+        </p>
+      </footer>
     </main>
 
     <script type="module" src="./script.js"></script>

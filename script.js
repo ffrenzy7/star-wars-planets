@@ -1,5 +1,24 @@
 import { getPlanets } from './StarWarsService.js'
 
+const modalButton = document.querySelector('.modalButton')
+const modalBackground = document.querySelector('.modalBackground')
+const modal = document.querySelector('.modal')
+const modalCloseButton = document.querySelector('.modalCloseButton')
+
+modalButton.addEventListener('click', openModal)
+modalBackground.addEventListener('click', closeModal)
+modalCloseButton.addEventListener('click', closeModal)
+
+function openModal() {
+  modal.classList.add('isVisible')
+  modalBackground.classList.add('isVisible')
+}
+
+function closeModal() {
+  modal.classList.remove('isVisible')
+  modalBackground.classList.remove('isVisible')
+}
+
 const insertPlanetData = async () => {
   const previousButton = document.querySelector('.previous-button')
   const nextButton = document.querySelector('.next-button')
@@ -12,37 +31,10 @@ const insertPlanetData = async () => {
   let navData = ''
   let index = 0
 
-  // for (const [i, planet] of planets.entries()) {
-  //   planetData += `
-  //     <div class="slider ${i === index ? 'isActive' : ''}">
-  //       <img class="planet-image" src="./assets/${planet.name}.png" alt="${
-  //     planet.name
-  //   }" />
-
-  //       <div class="content">
-  //         <h1 class="title">${planet.name}</h1>
-
-  //         <ul class="description">
-  //           <li><strong>Diameter:</strong> ${planet.diameter}km</li>
-  //           <li><strong>Rotation period:</strong> ${
-  //             planet.rotation_period
-  //           }h</li>
-  //           <li><strong>Population:</strong> ${planet.population}</li>
-  //           <li><strong>Climate:</strong> ${planet.climate}</li>
-  //         </ul>
-  //       </div>
-  //     </div>
-  //   `
-
-  //   navData += `<button class="nav-button ${
-  //     i === index ? 'isActive' : ''
-  //   }" data-index="${i}"></button>`
-  // }
-
   for (const [i, planet] of planets.entries()) {
     planetData += `
       <div class="slider">
-        <img class="planet-image" src="./assets/${planet.name}.png" alt="${planet.name}" />
+        <img class="planet-image" src="./assets/${planet.name}.png" alt="${planet.name}" draggable="false" />
 
         <div class="content">
           <h1 class="title">${planet.name}</h1>
@@ -76,17 +68,6 @@ const insertPlanetData = async () => {
         navButtons[i].classList.remove('isActive')
       }
 
-      // const isNext = index + 1 >= sliders.length ? 0 : index + 1
-      // const isPrevious = index - 1 < 0 ? sliders.length - 1 : index - 1
-
-      // if (i === isNext) {
-      //   slider.classList.add('next')
-      // } else if (i === isPrevious) {
-      //   slider.classList.add('previous')
-      // } else {
-      //   slider.classList.remove('next', 'previous')
-      // }
-
       if (i > index) {
         slider.classList.remove('previous')
         slider.classList.add('next')
@@ -111,27 +92,6 @@ const insertPlanetData = async () => {
   }
 
   updateActivePlanet()
-
-  // const updateActivePlanet = (direction) => {
-  //   for (const [i, slider] of sliders.entries()) {
-  //     if (slider.classList.contains('isActive')) {
-  //       slider.classList.add('lastActive')
-  //     } else if (slider.classList.contains('lastActive')) {
-  //       slider.classList.remove('lastActive')
-  //     }
-
-  //     if (i === index) {
-  //       slider.classList.add('isActive')
-  //       navButtons[i].classList.add('isActive')
-  //     } else {
-  //       slider.classList.remove('isActive')
-  //       navButtons[i].classList.remove('isActive')
-  //     }
-  //   }
-
-  //   sliderWrapper.classList.remove('previous', 'next')
-  //   sliderWrapper.classList.add(direction)
-  // }
 
   const previous = () => {
     if (index - 1 < 0) {
