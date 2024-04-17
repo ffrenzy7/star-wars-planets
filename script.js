@@ -1,8 +1,25 @@
 import { getPlanets } from './StarWarsService.js'
 
-// Background parallax
-
 const container = document.querySelector('.container')
+const modalButton = document.querySelector('.modalButton')
+const modalBackground = document.querySelector('.modalBackground')
+const modal = document.querySelector('.modal')
+const modalCloseButton = document.querySelector('.modalCloseButton')
+const previousButton = document.querySelector('.previous-button')
+const nextButton = document.querySelector('.next-button')
+const sliderWrapper = document.querySelector('.slider-wrapper')
+const sliderNav = document.querySelector('.slider-nav')
+const form = document.querySelector('.form')
+const inputs = document.querySelectorAll('.inputValidate')
+const errorMessage = document.querySelectorAll('.errorMessage')
+const keyQuestion = document.querySelector('.keyQuestion')
+
+container.addEventListener('mousemove', parallax)
+modalButton.addEventListener('click', openModal)
+modalBackground.addEventListener('click', closeModal)
+modalCloseButton.addEventListener('click', closeModal)
+
+// Background parallax
 
 function parallax(event) {
   let _width = window.innerWidth / 2
@@ -16,39 +33,7 @@ function parallax(event) {
   container.style.backgroundPosition = _depth
 }
 
-document.addEventListener('mousemove', parallax)
-
-// Form
-
-const form = document.querySelector('.form')
-const inputs = document.querySelectorAll('.inputValidate')
-const errorMessage = document.querySelectorAll('.errorMessage')
-
-form.addEventListener('submit', (event) => {
-  event.preventDefault()
-
-  inputs.forEach((input, index) => {
-    if (!input.checkValidity()) {
-      input.classList.add('shake')
-      errorMessage[index].style.display = 'block'
-
-      setTimeout(function () {
-        input.classList.remove('shake')
-      }, 1200)
-    } else {
-      errorMessage[index].style.display = 'none'
-    }
-  })
-
-  // form.reset()
-})
-
 // Modal
-
-const modalButton = document.querySelector('.modalButton')
-const modalBackground = document.querySelector('.modalBackground')
-const modal = document.querySelector('.modal')
-const modalCloseButton = document.querySelector('.modalCloseButton')
 
 function openModal() {
   form.reset()
@@ -57,23 +42,13 @@ function openModal() {
 }
 
 function closeModal() {
-  form.reset()
   modal.classList.remove('isVisible')
   modalBackground.classList.remove('isVisible')
 }
 
-modalButton.addEventListener('click', openModal)
-modalBackground.addEventListener('click', closeModal)
-modalCloseButton.addEventListener('click', closeModal)
-
 // Inserting Planet Data
 
 const insertPlanetData = async () => {
-  const previousButton = document.querySelector('.previous-button')
-  const nextButton = document.querySelector('.next-button')
-  const sliderWrapper = document.querySelector('.slider-wrapper')
-  const sliderNav = document.querySelector('.slider-nav')
-
   const planets = await getPlanets([1, 4, 8, 9, 10, 11, 13, 14, 17, 36])
 
   let planetData = ''
@@ -181,6 +156,37 @@ const insertPlanetData = async () => {
   for (const navButton of navButtons) {
     navButton.addEventListener('click', navigate)
   }
+
+  // Form
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault()
+
+    let hasError = false
+
+    inputs.forEach((input, index) => {
+      if (!input.checkValidity()) {
+        hasError = true
+        input.classList.add('shake')
+        // errorMessage[index].style.display = 'block'
+
+        setTimeout(function () {
+          input.classList.remove('shake')
+        }, 1200)
+        // } else {
+        //   errorMessage[index].style.display = 'none'
+      }
+    })
+
+    if (hasError) return
+
+    const keyAnswer = keyQuestion.options[keyQuestion.selectedIndex].value
+
+    index = Number(keyAnswer)
+
+    closeModal()
+    updateActivePlanet()
+  })
 }
 
 insertPlanetData()

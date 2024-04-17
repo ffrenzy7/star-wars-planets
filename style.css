@@ -51,7 +51,7 @@ option {
 
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 120%;
+  background-size: 110vw 110vh;
 }
 
 .arrow {
@@ -140,14 +140,21 @@ option {
 }
 
 .slider.isActive .planet-image {
-  transform: translate(-100%, -30%) scale(1);
+  transform: translate(-50%, -20%) scale(0.5);
   transition-delay: 0.3s;
+
+  @media only screen and (min-width: 1140px) {
+    transform: translate(-100%, -30%) scale(1);
+  }
 }
 
 .content {
   color: white;
-  transform: translateX(100%);
-  width: 440px;
+
+  @media only screen and (min-width: 1140px) {
+    transform: translateX(100%);
+    width: 440px;
+  }
 }
 
 .title {
@@ -195,13 +202,18 @@ option {
 }
 
 .api-credits {
-  bottom: 1%;
+  bottom: 2%;
   color: white;
   font-size: 22px;
-  left: 50%;
   position: absolute;
+  text-align: center;
   text-shadow: 0 5px 3px hsla(0, 0%, 0%, 0.9);
-  transform: translate(-50%, -50%);
+
+  @media only screen and (min-width: 1140px) {
+    bottom: 1%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .api-credits a {
@@ -216,9 +228,15 @@ option {
   font-size: 18px;
   padding: 10px 30px;
   position: absolute;
-  right: 1%;
+  right: 50%;
   top: 3%;
+  transform: translateX(50%);
   z-index: 2;
+
+  @media only screen and (min-width: 1140px) {
+    right: 1%;
+    transform: translateX(0%);
+  }
 }
 
 .modalIcon {
@@ -265,8 +283,11 @@ option {
   top: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 0.3s ease;
-  width: 30%;
   z-index: 3;
+
+  @media only screen and (min-width: 1140px) {
+    width: 30%;
+  }
 }
 
 .modal.isVisible {
