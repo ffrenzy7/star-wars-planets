@@ -18,6 +18,31 @@ function parallax(event) {
 
 document.addEventListener('mousemove', parallax)
 
+// Form
+
+const form = document.querySelector('.form')
+const inputs = document.querySelectorAll('.inputValidate')
+const errorMessage = document.querySelectorAll('.errorMessage')
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault()
+
+  inputs.forEach((input, index) => {
+    if (!input.checkValidity()) {
+      input.classList.add('shake')
+      errorMessage[index].style.display = 'block'
+
+      setTimeout(function () {
+        input.classList.remove('shake')
+      }, 1200)
+    } else {
+      errorMessage[index].style.display = 'none'
+    }
+  })
+
+  // form.reset()
+})
+
 // Modal
 
 const modalButton = document.querySelector('.modalButton')
@@ -26,11 +51,13 @@ const modal = document.querySelector('.modal')
 const modalCloseButton = document.querySelector('.modalCloseButton')
 
 function openModal() {
+  form.reset()
   modal.classList.add('isVisible')
   modalBackground.classList.add('isVisible')
 }
 
 function closeModal() {
+  form.reset()
   modal.classList.remove('isVisible')
   modalBackground.classList.remove('isVisible')
 }

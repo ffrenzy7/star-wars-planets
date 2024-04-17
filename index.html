@@ -40,44 +40,98 @@
 
         <h2 class="modal-title">Find out the planet that best suits you</h2>
 
-        <label class="form">Your name:</label>
-        <input type="text" name="" id="" placeholder="The Chosen One" />
+        <form class="form" novalidate>
+          <div>
+            <label for="name">Your name:</label>
+            <input
+              class="inputValidate"
+              type="text"
+              name="name"
+              id="name"
+              placeholder="The Chosen One"
+              required
+            />
 
-        <label class="form">Your zodiac sign:</label>
-        <select name="" id="">
-          <option value="">Aries</option>
-          <option value="">Taurus</option>
-          <option value="">Gemini</option>
-          <option value="">Cancer</option>
-          <option value="">Leo</option>
-          <option value="">Virgo</option>
-          <option value="">Libra</option>
-          <option value="">Scorpio</option>
-          <option value="">Sagittarius</option>
-          <option value="">Capricorn</option>
-          <option value="">Aquarius</option>
-          <option value="">Pisces</option>
-        </select>
+            <div class="errorMessage">
+              To type your name, you forgot, hrrmmm.
+            </div>
+          </div>
 
-        <label class="form">Choose your path:</label>
-        <input type="radio" name="" id="" /> <label>Jedi</label>
-        <input type="radio" name="" id="" /> <label>Sith</label>
+          <div>
+            <label for="sign">Your Zodiac Sign:</label>
+            <select class="inputValidate" name="sign" id="sign" required>
+              <option disabled selected value="">Select your Sign</option>
+              <option value="aries">Aries</option>
+              <option value="taurus">Taurus</option>
+              <option value="gemini">Gemini</option>
+              <option value="cancer">Cancer</option>
+              <option value="leo">Leo</option>
+              <option value="virgo">Virgo</option>
+              <option value="libra">Libra</option>
+              <option value="scorpio">Scorpio</option>
+              <option value="sagittarius">Sagittarius</option>
+              <option value="capricorn">Capricorn</option>
+              <option value="aquarius">Aquarius</option>
+              <option value="pisces">Pisces</option>
+            </select>
 
-        <label class="form">What do you prefer?</label>
-        <select name="" id="">
-          <option value="">Jabba</option>
-          <option value="">Winter is coming</option>
-          <option value="">Jar Jar Binks</option>
-          <option value="">Tokyo / NY but BIGGER</option>
-          <option value="">Staying hidrated</option>
-          <option value="">Big insects</option>
-          <option value="">The floor is lava</option>
-          <option value="">Welcome To The Jungle</option>
-          <option value="">Shrek</option>
-          <option value="">Literally Hell</option>
-        </select>
+            <div class="errorMessage">Even droids have a Sign, right?</div>
+          </div>
 
-        <input class="calculateButton" type="button" value="Calculate!" />
+          <div>
+            <label for="light">Choose your path:</label>
+            <div class="inputRadioWrapper">
+              <div>
+                <input
+                  class="inputValidate"
+                  type="radio"
+                  name="path"
+                  id="light"
+                />
+                <label for="light">Light Side</label>
+              </div>
+              <div>
+                <input
+                  class="inputValidate"
+                  type="radio"
+                  name="path"
+                  id="dark"
+                />
+                <label for="dark">Dark Side</label>
+              </div>
+            </div>
+
+            <div class="errorMessage">
+              Doubt leads to Fear, Fear leads to Anger...you got it.
+            </div>
+          </div>
+
+          <div>
+            <label for="preference">What do you prefer?</label>
+            <select
+              class="inputValidate"
+              name="preference"
+              id="preference"
+              required
+            >
+              <option disabled selected value="">Choose wisely!</option>
+              <option value="jabba">Jabba</option>
+              <option value="winter">Winter is coming</option>
+              <option value="binks">Jar Jar Binks</option>
+              <option value="tokyo">Tokyo / NY but BIGGER</option>
+              <option value="hydrated">Staying hidrated</option>
+              <option value="insects">Big insects</option>
+              <option value="lava">The floor is lava</option>
+              <option value="jungle">Welcome To The Jungle</option>
+              <option value="shrek">Shrek</option>
+              <option value="hell">Literally Hell</option>
+            </select>
+
+            <div class="errorMessage">Do...or do not. There is no try.</div>
+          </div>
+
+          <input class="submitButton" type="submit" value="Show me!" />
+        </form>
       </aside>
 
       <button class="arrow previous-button" type="button">
