@@ -1,4 +1,5 @@
-const apiUrl = 'https://swapi.dev/api'
+// const apiUrl = 'https://swapi.dev/api'
+const apiUrl = 'https://swapi.info/api'
 
 const getPlanets = async (planetsIds = []) => {
   const requestsData = []
