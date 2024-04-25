@@ -38,7 +38,7 @@
       <aside class="modal">
         <button class="modalCloseButton" type="button">X</button>
 
-        <h2 class="modal-title">Find out the planet that best suits you</h2>
+        <h2 class="modalTitle">Find out the planet that best suits you</h2>
 
         <form class="form" novalidate>
           <div>
@@ -52,7 +52,7 @@
               required
             />
 
-            <div class="errorMessage">
+            <div class="errorMessage" data-name="name">
               To type your name, you forgot, hrrmmm.
             </div>
           </div>
@@ -75,7 +75,9 @@
               <option value="pisces">Pisces</option>
             </select>
 
-            <div class="errorMessage">Even droids have a Sign, right?</div>
+            <div class="errorMessage" data-name="sign">
+              Even droids have a Sign, right?
+            </div>
           </div>
 
           <div>
@@ -87,6 +89,8 @@
                   type="radio"
                   name="path"
                   id="light"
+                  value="light"
+                  required
                 />
                 <label for="light">Light Side</label>
               </div>
@@ -96,12 +100,14 @@
                   type="radio"
                   name="path"
                   id="dark"
+                  value="dark"
+                  required
                 />
                 <label for="dark">Dark Side</label>
               </div>
             </div>
 
-            <div class="errorMessage">
+            <div class="errorMessage" data-name="path">
               Doubt leads to Fear, Fear leads to Anger...you got it.
             </div>
           </div>
@@ -127,35 +133,44 @@
               <option value="9">Literally Hell</option>
             </select>
 
-            <div class="errorMessage">Do...or do not. There is no try.</div>
+            <div class="errorMessage" data-name="preference">
+              Do...or do not. There is no try.
+            </div>
           </div>
 
           <input class="submitButton" type="submit" value="Show me!" />
         </form>
       </aside>
 
-      <button class="arrow previous-button" type="button">
+      <dialog class="notificationBar">
+        <form method="dialog">
+          <button class="closeResultButton">Close</button>
+        </form>
+        <div class="formResult"></div>
+      </dialog>
+
+      <button class="arrow previousButton" type="button">
         <img
-          class="arrow-icon"
+          class="arrowIcon"
           src="./assets/xwing-icon.png"
           alt="Previous Slider"
           draggable="false"
         />
       </button>
-      <button class="arrow next-button" type="button">
+      <button class="arrow nextButton" type="button">
         <img
-          class="arrow-icon"
+          class="arrowIcon"
           src="./assets/xwing-icon.png"
           alt="Next Slider"
           draggable="false"
         />
       </button>
 
-      <div class="slider-nav"></div>
+      <div class="sliderNav"></div>
 
-      <div class="slider-wrapper"></div>
+      <div class="sliderWrapper"></div>
 
-      <footer class="api-credits">
+      <footer class="apiCredits">
         <p>
           All this data is dynamically provided by API Integration from:
           <!-- <a href="https://swapi.dev/api">https://swapi.dev/api</a> -->

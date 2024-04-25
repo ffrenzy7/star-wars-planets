@@ -1,4 +1,4 @@
-// const apiUrl = 'https://swapi.dev/api'
+// const apiUrl = 'https://swapi.dev/api' OLD API
 const apiUrl = 'https://swapi.info/api'
 
 const getPlanets = async (planetsIds = []) => {
