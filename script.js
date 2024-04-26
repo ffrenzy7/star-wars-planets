@@ -13,7 +13,6 @@ const form = document.querySelector('.form')
 const inputs = document.querySelectorAll('.inputValidate')
 const inputName = document.querySelector('.inputValidate[name="name"]')
 const inputSign = document.querySelector('.inputValidate[name="sign"]')
-const inputPath = document.querySelector('.inputValidate[name="path"]')
 const keyQuestion = document.querySelector('.keyQuestion')
 const notificationBar = document.querySelector('.notificationBar')
 const formResult = document.querySelector('.formResult')
@@ -199,6 +198,9 @@ const insertPlanetData = async () => {
 
     if (hasError) return
 
+    const inputPath = document.querySelector(
+      '.inputValidate[name="path"]:checked',
+    )
     const keyAnswer = keyQuestion.options[keyQuestion.selectedIndex]
 
     closeModal()
@@ -213,6 +215,12 @@ const insertPlanetData = async () => {
       planets[index].name
     }!
     `
+
+    if (inputPath.value === 'light') {
+      notificationBar.style.backgroundColor = 'cornflowerblue'
+    } else {
+      notificationBar.style.backgroundColor = 'coral'
+    }
 
     closeResultButton.addEventListener('click', () => {
       notificationBar.close()

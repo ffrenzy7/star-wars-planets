@@ -221,9 +221,9 @@ option {
 }
 
 .modalButton {
+  background-color: yellow;
   border-radius: 50px;
-  border: 1px solid white;
-  color: white;
+  border: 1px solid yellow;
   cursor: pointer;
   font-size: 18px;
   padding: 10px 30px;
@@ -231,12 +231,19 @@ option {
   right: 50%;
   top: 3%;
   transform: translateX(50%);
+  transition: 0.3s ease;
+  transition-property: background-color, color;
   z-index: 1;
 
   @media only screen and (min-width: 1140px) {
     right: 1%;
     transform: translateX(0%);
   }
+}
+
+.modalButton:hover {
+  background-color: transparent;
+  color: yellow;
 }
 
 .modalIcon {
@@ -265,7 +272,8 @@ option {
 
 .modal {
   align-items: center;
-  background-image: radial-gradient(circle at 0% 0%, #373b52, #1d1e26);
+  /* background-image: radial-gradient(circle at 0% 0%, #373b52, #1d1e26); */
+  background-color: rgb(24, 30, 39);
   border-radius: 10px;
   box-shadow: 0 7px 7px hsla(0, 0%, 0%, 0.7);
   color: white;
@@ -321,7 +329,8 @@ option {
 }
 
 .inputValidate {
-  background-color: rgba(57, 63, 84, 0.8);
+  /* background-color: rgba(57, 63, 84, 0.8); */
+  background-color: rgb(16, 20, 26);
   border-radius: 7px 7px 7px 7px;
   line-height: 35px;
   margin: 10px 0;
@@ -329,7 +338,7 @@ option {
 }
 
 .inputValidate:valid {
-  box-shadow: 0 3px cyan;
+  box-shadow: 0 3px cornflowerblue;
 }
 
 .inputValidate:valid + .errorMessage {
@@ -372,6 +381,7 @@ option {
 input[type='submit'].submitButton {
   background-color: yellow;
   border-radius: 7px;
+  border: 2px solid yellow;
   box-shadow: 0 3px hsla(0, 0%, 0%, 0.1);
   color: black;
   cursor: pointer;
@@ -380,6 +390,13 @@ input[type='submit'].submitButton {
   margin-top: 10px;
   padding: 15px 40px;
   text-transform: uppercase;
+  transition: 0.3s ease;
+  transition-property: background-color, color;
+}
+
+input[type='submit'].submitButton:hover {
+  background-color: transparent;
+  color: yellow;
 }
 
 .shake {
@@ -397,9 +414,24 @@ input[type='submit'].submitButton {
 }
 
 .notificationBar {
+  border-radius: 28px 28px 28px 0;
+  border: none;
+  color: white;
   left: 50%;
-  padding: 2vw;
+  padding: 30px;
   top: 5%;
   transform: translateX(-50%);
   z-index: 2;
+}
+
+.closeResultButton {
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 30px;
+  padding: 5px;
+  position: absolute;
+  right: -1%;
+  top: -7%;
+  width: 30px;
 }
