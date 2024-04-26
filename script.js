@@ -1,3 +1,5 @@
+'use strict'
+
 import { getPlanets } from './StarWarsService.js'
 
 const container = document.querySelector('.container')
@@ -27,15 +29,15 @@ modalCloseButton.addEventListener('click', closeModal)
 // Background parallax
 
 function parallax(event) {
-  let _width = window.innerWidth / 2
-  let _height = window.innerHeight / 2
-  let _mouseX = event.clientX
-  let _mouseY = event.clientY
-  let _depth = `${50 - (_mouseX - _width) * 0.01}% ${
-    50 - (_mouseY - _height) * 0.01
+  const width = window.innerWidth / 2
+  const height = window.innerHeight / 2
+  const mouseX = event.clientX
+  const mouseY = event.clientY
+  const depth = `${50 - (mouseX - width) * 0.01}% ${
+    50 - (mouseY - height) * 0.01
   }%`
 
-  container.style.backgroundPosition = _depth
+  container.style.backgroundPosition = depth
 }
 
 // Modal

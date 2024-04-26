@@ -37,16 +37,14 @@ option {
 .container {
   align-items: center;
   background-image: url('./assets/space-bg.jpg');
-  /* background-size: cover; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 120vw 120vh;
   display: flex;
   height: 100vh;
   justify-content: center;
   position: relative;
   width: 100%;
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 110vw 110vh;
 }
 
 .arrow {
@@ -267,7 +265,6 @@ option {
 
 .modal {
   align-items: center;
-  /* background-image: radial-gradient(circle at 0% 0%, #373b52, #1d1e26); */
   background-color: rgb(24, 30, 39);
   border-radius: 10px;
   box-shadow: 0 7px 7px hsla(0, 0%, 0%, 0.7);

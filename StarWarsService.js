@@ -1,3 +1,5 @@
+'use strict'
+
 // const apiUrl = 'https://swapi.dev/api' OLD API
 const apiUrl = 'https://swapi.info/api'
 
