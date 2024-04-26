@@ -11,10 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
       rel="stylesheet"
     />
@@ -26,12 +22,10 @@
   </head>
   <body>
     <main class="container">
-      <nav>
-        <button class="modalButton" type="button">
-          <i class="fa-solid fa-magnifying-glass modalIcon"></i>Find your planet
-          here!
-        </button>
-      </nav>
+      <button class="modalButton" type="button">
+        <i class="fa-solid fa-magnifying-glass modalIcon"></i>Find your planet
+        here!
+      </button>
 
       <div class="modalBackground"></div>
 
@@ -41,10 +35,10 @@
         <h2 class="modalTitle">Find out the planet that best suits you</h2>
 
         <form class="form" novalidate>
-          <div>
+          <div class="question">
             <label for="name">Your name:</label>
             <input
-              class="inputValidate"
+              class="inputValidate inputBar"
               type="text"
               name="name"
               id="name"
@@ -57,22 +51,31 @@
             </div>
           </div>
 
-          <div>
+          <div class="question">
             <label for="sign">Your Zodiac Sign:</label>
-            <select class="inputValidate" name="sign" id="sign" required>
-              <option disabled selected value="">Select your Sign</option>
-              <option value="aries">Aries</option>
-              <option value="taurus">Taurus</option>
-              <option value="gemini">Gemini</option>
-              <option value="cancer">Cancer</option>
-              <option value="leo">Leo</option>
-              <option value="virgo">Virgo</option>
-              <option value="libra">Libra</option>
-              <option value="scorpio">Scorpio</option>
-              <option value="sagittarius">Sagittarius</option>
-              <option value="capricorn">Capricorn</option>
-              <option value="aquarius">Aquarius</option>
-              <option value="pisces">Pisces</option>
+            <select
+              class="inputValidate inputBar"
+              name="sign"
+              id="sign"
+              required
+            >
+              <option class="inputOption" disabled selected value="">
+                Select your Sign
+              </option>
+              <option class="inputOption" value="aries">Aries</option>
+              <option class="inputOption" value="taurus">Taurus</option>
+              <option class="inputOption" value="gemini">Gemini</option>
+              <option class="inputOption" value="cancer">Cancer</option>
+              <option class="inputOption" value="leo">Leo</option>
+              <option class="inputOption" value="virgo">Virgo</option>
+              <option class="inputOption" value="libra">Libra</option>
+              <option class="inputOption" value="scorpio">Scorpio</option>
+              <option class="inputOption" value="sagittarius">
+                Sagittarius
+              </option>
+              <option class="inputOption" value="capricorn">Capricorn</option>
+              <option class="inputOption" value="aquarius">Aquarius</option>
+              <option class="inputOption" value="pisces">Pisces</option>
             </select>
 
             <div class="errorMessage" data-name="sign">
@@ -80,7 +83,7 @@
             </div>
           </div>
 
-          <div>
+          <div class="question">
             <label for="light">Choose your path:</label>
             <div class="inputRadioWrapper">
               <div>
@@ -112,25 +115,31 @@
             </div>
           </div>
 
-          <div>
+          <div class="question">
             <label for="preference">What do you prefer?</label>
             <select
-              class="inputValidate keyQuestion"
+              class="inputValidate inputBar keyQuestion"
               name="preference"
               id="preference"
               required
             >
-              <option disabled selected value="">Choose wisely!</option>
-              <option value="0">Jabba</option>
-              <option value="1">Winter is coming</option>
-              <option value="2">Jar Jar Binks</option>
-              <option value="3">Tokyo / NY but BIGGER</option>
-              <option value="4">Staying hidrated</option>
-              <option value="5">Big insects</option>
-              <option value="6">The floor is lava</option>
-              <option value="7">Welcome To The Jungle</option>
-              <option value="8">Shrek</option>
-              <option value="9">Literally Hell</option>
+              <option class="inputOption" disabled selected value="">
+                Choose wisely!
+              </option>
+              <option class="inputOption" value="0">Jabba</option>
+              <option class="inputOption" value="1">Winter is coming</option>
+              <option class="inputOption" value="2">Jar Jar Binks</option>
+              <option class="inputOption" value="3">
+                Tokyo / NY but BIGGER
+              </option>
+              <option class="inputOption" value="4">Staying hidrated</option>
+              <option class="inputOption" value="5">Big insects</option>
+              <option class="inputOption" value="6">The floor is lava</option>
+              <option class="inputOption" value="7">
+                Welcome To The Jungle
+              </option>
+              <option class="inputOption" value="8">Shrek</option>
+              <option class="inputOption" value="9">Literally Hell</option>
             </select>
 
             <div class="errorMessage" data-name="preference">
@@ -166,9 +175,9 @@
         />
       </button>
 
-      <div class="sliderNav"></div>
+      <nav class="sliderNav"></nav>
 
-      <div class="sliderWrapper"></div>
+      <article class="sliderWrapper"></article>
 
       <footer class="apiCredits">
         <p>
