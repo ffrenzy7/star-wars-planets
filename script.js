@@ -14,6 +14,7 @@ const inputs = document.querySelectorAll('.inputValidate')
 const inputName = document.querySelector('.inputValidate[name="name"]')
 const inputSign = document.querySelector('.inputValidate[name="sign"]')
 const keyQuestion = document.querySelector('.keyQuestion')
+const errorMessages = document.querySelectorAll('.errorMessage')
 const notificationBar = document.querySelector('.notificationBar')
 const formResult = document.querySelector('.formResult')
 const closeResultButton = document.querySelector('.closeResultButton')
@@ -42,6 +43,11 @@ function parallax(event) {
 function openModal() {
   notificationBar.close()
   form.reset()
+
+  errorMessages.forEach((errorMessage) => {
+    errorMessage.classList.remove('isVisible')
+  })
+
   modal.classList.add('isVisible')
   modalBackground.classList.add('isVisible')
 }
@@ -185,14 +191,14 @@ const insertPlanetData = async () => {
           input.classList.add('shake')
         }
 
-        errorMessage.style.display = 'block'
+        errorMessage.classList.add('isVisible')
 
         setTimeout(function () {
           input.parentElement.classList.remove('shake')
           input.classList.remove('shake')
         }, 1200)
       } else {
-        errorMessage.style.display = 'none'
+        errorMessage.classList.remove('isVisible')
       }
     })
 

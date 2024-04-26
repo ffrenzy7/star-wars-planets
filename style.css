@@ -336,7 +336,8 @@ option {
   box-shadow: 0 3px cornflowerblue;
 }
 
-.inputValidate:valid + .errorMessage {
+.inputValidate:valid + .errorMessage,
+.inputRadioWrapper:has(.inputValidate:valid) + .errorMessage {
   display: none;
 }
 
@@ -375,6 +376,10 @@ option {
   color: coral;
   display: none;
   margin-top: 10px;
+
+  &.isVisible {
+    display: block;
+  }
 }
 
 .inputRadioWrapper {
@@ -387,6 +392,14 @@ option {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.inputRadioLight {
+  accent-color: cornflowerblue;
+}
+
+.inputRadioDark {
+  accent-color: coral;
 }
 
 .submitButton {
