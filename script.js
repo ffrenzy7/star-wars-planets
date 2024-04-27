@@ -26,6 +26,15 @@ container.addEventListener('touchmove', parallax)
 modalButton.addEventListener('click', openModal)
 modalBackground.addEventListener('click', closeModal)
 modalCloseButton.addEventListener('click', closeModal)
+previousButton.addEventListener('mousedown', getSmaller)
+previousButton.addEventListener('mouseup', backToNormal)
+nextButton.addEventListener('mousedown', getSmaller)
+nextButton.addEventListener('mouseup', backToNormal)
+
+previousButton.addEventListener('touchstart', getSmaller)
+previousButton.addEventListener('touchend', backToNormal)
+nextButton.addEventListener('touchstart', getSmaller)
+nextButton.addEventListener('touchend', backToNormal)
 
 // Background parallax
 
@@ -58,6 +67,16 @@ function openModal() {
 function closeModal() {
   modal.classList.remove('isVisible')
   modalBackground.classList.remove('isVisible')
+}
+
+// Arrow buttons
+
+function getSmaller(event) {
+  event.currentTarget.classList.add('clicked')
+}
+
+function backToNormal(event) {
+  event.currentTarget.classList.remove('clicked')
 }
 
 // Inserting Planet Data
