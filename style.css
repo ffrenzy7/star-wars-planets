@@ -45,7 +45,7 @@ option {
   background-repeat: no-repeat;
   background-size: 150vw 150vh;
   display: flex;
-  height: 100vh;
+  height: 100dvh;
   justify-content: center;
   overflow: hidden;
   position: relative;
