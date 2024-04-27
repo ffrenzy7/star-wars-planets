@@ -43,7 +43,7 @@ option {
   background-image: url('./assets/space-bg.jpg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 150vw 150vh;
+  background-size: 120vw 120vh;
   display: flex;
   height: 100dvh;
   justify-content: center;
@@ -51,9 +51,9 @@ option {
   position: relative;
   width: 100%;
 
-  @media only screen and (min-width: 1140px) {
+  /* @media only screen and (min-width: 1140px) {
     background-size: 120vw 120vh;
-  }
+  } */
 }
 
 .contentWrapper {
@@ -255,7 +255,7 @@ option {
   font-size: 1.3rem;
   position: absolute;
   text-align: center;
-  text-shadow: 0 5px 3px hsla(0, 0%, 0%, 0.9);
+  text-shadow: 0 3px 3px hsla(0, 0%, 0%, 0.5);
 
   @media only screen and (min-width: 1140px) {
     bottom: 1%;
