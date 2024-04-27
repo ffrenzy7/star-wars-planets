@@ -261,7 +261,7 @@ const insertPlanetData = async () => {
       inputSign.value
     } huh? Since you choose the path of the ${
       inputPath.value === 'light' ? 'Jedi' : 'Sith'
-    } and is a fan of ${keyAnswer.text}, the best planet for you is ${
+    } and is a "fan of ${keyAnswer.text}", the best planet for you is ${
       planets[index].name
     }!
     `
