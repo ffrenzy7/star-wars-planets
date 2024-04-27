@@ -281,9 +281,9 @@ const insertPlanetData = async () => {
     `
 
     if (inputPath.value === 'light') {
-      notificationBar.style.backgroundColor = 'cornflowerblue'
+      notificationBar.style.backgroundColor = 'hsla(219, 79%, 66%, 0.9)'
     } else {
-      notificationBar.style.backgroundColor = 'coral'
+      notificationBar.style.backgroundColor = 'hsla(16, 100%, 66%, 0.9)'
     }
 
     closeResultButton.addEventListener('click', () => {
