@@ -195,26 +195,27 @@ const insertPlanetData = async () => {
   }
 
   // Swipe
-  let swipeStartX = 0
-  let swipeX = 0
 
-  function swipeStart(event) {
-    swipeStartX = event.touches[0].clientX
-  }
+  // let swipeStartX = 0
+  // let swipeX = 0
 
-  function swipe(event) {
-    swipeX = event.touches[0].clientX
-  }
+  // function swipeStart(event) {
+  //   swipeStartX = event.touches[0].clientX
+  // }
 
-  function swipeEnd() {
-    swipeStartX > swipeX ? next() : previous()
-    swipeX = 0
-    swipeStartX = 0
-  }
+  // function swipe(event) {
+  //   swipeX = event.touches[0].clientX
+  // }
 
-  container.addEventListener('touchstart', swipeStart)
-  container.addEventListener('touchmove', swipe)
-  container.addEventListener('touchend', swipeEnd)
+  // function swipeEnd() {
+  //   swipeStartX > swipeX ? next() : previous()
+  //   swipeX = 0
+  //   swipeStartX = 0
+  // }
+
+  // container.addEventListener('touchstart', swipeStart)
+  // container.addEventListener('touchmove', swipe)
+  // container.addEventListener('touchend', swipeEnd)
 
   // Form
 
