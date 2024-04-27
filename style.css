@@ -6,6 +6,10 @@
 
 html {
   font-size: 16px;
+
+  @media only screen and (min-width: 1140px) {
+    font-size: 1vw;
+  }
 }
 
 body {
@@ -71,7 +75,8 @@ option {
     rotate: 90deg;
 
     @media only screen and (min-width: 1140px) {
-      right: 7%;
+      left: 90%;
+      right: auto;
     }
   }
 }
@@ -183,6 +188,10 @@ option {
   transition: 0.7s ease;
   transition-property: transform, opacity;
 
+  @media only screen and (min-width: 1140px) {
+    font-size: 5rem;
+  }
+
   .next & {
     transform: translateX(100%);
   }
@@ -204,6 +213,10 @@ option {
   opacity: 0;
   transition: 0.7s ease 0.2s;
   transition-property: transform, opacity;
+
+  @media only screen and (min-width: 1140px) {
+    font-size: 1.8rem;
+  }
 
   .next & {
     transform: translateX(100%);
@@ -327,6 +340,16 @@ option {
     opacity: 1;
     pointer-events: all;
   }
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: yellow;
+    border-radius: 2px;
+  }
 }
 
 .modalCloseButton {
@@ -347,6 +370,10 @@ option {
   font-weight: 600;
   text-align: center;
   padding: 0 3rem;
+
+  @media only screen and (min-width: 1140px) {
+    padding: 0 7rem;
+  }
 }
 
 .form {
@@ -356,7 +383,7 @@ option {
   width: 100%;
 
   @media only screen and (min-width: 1140px) {
-    width: 70%;
+    width: 90%;
   }
 }
 
