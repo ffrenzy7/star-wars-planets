@@ -91,7 +91,7 @@ const insertPlanetData = async () => {
   for (const [i, planet] of planets.entries()) {
     planetData += `
       <div class="slider">
-        <img class="planetImage" src="./assets/${planet.name}.png" alt="${planet.name}" draggable="false" />
+        <img class="planetImage" src="./assets/${planet.name}.png" alt="${planet.name}" draggable="false" oncontextmenu="return false" />
 
         <div class="content">
           <h1 class="title">${planet.name}</h1>
