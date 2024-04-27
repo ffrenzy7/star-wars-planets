@@ -47,36 +47,42 @@ option {
   display: flex;
   height: 100vh;
   justify-content: center;
+  overflow: hidden;
   position: relative;
   width: 100%;
 }
 
-.arrow {
-  cursor: pointer;
-  position: absolute;
-  top: 36%;
-  z-index: 1;
+.contentWrapper {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding-bottom: 12rem;
 
   @media only screen and (min-width: 1140px) {
-    top: initial;
+    gap: 3rem;
+    padding-bottom: initial;
+    padding-left: 50rem;
   }
+}
+
+.arrow {
+  cursor: pointer;
+  z-index: 1;
 
   &.previousButton {
-    left: 1%;
-    rotate: -90deg;
+    transform: translateX(calc(100% + 1rem)) rotate(-90deg);
 
     @media only screen and (min-width: 1140px) {
-      left: 53%;
+      transform: rotate(-90deg);
     }
   }
 
   &.nextButton {
-    right: 1%;
-    rotate: 90deg;
+    transform: translateX(calc(-100% - 1rem)) rotate(90deg);
 
     @media only screen and (min-width: 1140px) {
-      left: 90%;
-      right: auto;
+      transform: rotate(90deg);
     }
   }
 }
@@ -123,10 +129,12 @@ option {
 }
 
 .sliderWrapper {
-  height: 100%;
-  overflow: hidden;
   position: relative;
-  width: 100%;
+  width: 100vw;
+
+  @media only screen and (min-width: 1140px) {
+    width: 22rem;
+  }
 }
 
 .slider {
@@ -137,9 +145,11 @@ option {
   top: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 0s 0.5s;
-  width: 91%;
+  width: 100%;
 
   @media only screen and (min-width: 1140px) {
+    left: 0;
+    transform: translateY(-50%);
     width: auto;
   }
 
@@ -156,14 +166,14 @@ option {
   transform: translate(-50%, -50%) scale(0);
   transition: transform 0.7s ease;
   user-select: none;
-  width: 88rem;
+  width: 80rem;
 
   .slider.isActive & {
-    transform: translate(-50%, -20%) scale(0.5);
+    transform: translate(-50%, -12%) scale(0.5);
     transition-delay: 0.3s;
 
     @media only screen and (min-width: 1140px) {
-      transform: translate(-100%, -30%) scale(1);
+      transform: translate(-125%, -30%) scale(1);
     }
   }
 }
@@ -171,13 +181,10 @@ option {
 .content {
   color: white;
   text-align: center;
-  transform: translateY(-35%);
   width: 100%;
 
   @media only screen and (min-width: 1140px) {
     text-align: left;
-    transform: translateX(100%);
-    width: 440px;
   }
 }
 
@@ -389,7 +396,7 @@ option {
 
 .question {
   &:not(:first-child) {
-    margin-top: 20px;
+    margin-top: 1.2rem;
   }
 }
 
