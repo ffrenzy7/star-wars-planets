@@ -22,7 +22,7 @@ const formResult = document.querySelector('.formResult')
 const closeResultButton = document.querySelector('.closeResultButton')
 
 container.addEventListener('mousemove', parallax)
-container.addEventListener('touchmove', parallax)
+// container.addEventListener('touchmove', parallax)
 modalButton.addEventListener('click', openModal)
 modalBackground.addEventListener('click', closeModal)
 modalCloseButton.addEventListener('click', closeModal)
@@ -39,12 +39,9 @@ nextButton.addEventListener('touchend', backToNormal)
 // Background parallax
 
 function parallax(event) {
-  const width = window.innerWidth / 2
-  const height = window.innerHeight / 2
-  //  || event.touches[0].clientX
-  //  || event.touches[0].clientY
-
   if (window.matchMedia('(min-width: 1140px)').matches) {
+    const width = window.innerWidth / 2
+    const height = window.innerHeight / 2
     const mouseX = event.clientX
     const mouseY = event.clientY
     const depth = `${50 - (mouseX - width) * 0.01}% ${
@@ -53,13 +50,15 @@ function parallax(event) {
 
     container.style.backgroundPosition = depth
   } else {
-    const mouseX = event.touches[0].clientX
-    const mouseY = event.touches[0].clientY
-    const depth = `${50 - (mouseX - width) * 0.07}% ${
-      50 - (mouseY - height) * 0.07
-    }%`
+    // const mouseX = event.touches[0].clientX
+    // const mouseY = event.touches[0].clientY
+    // const depth = `${50 - (mouseX - width) * 0.07}% ${
+    //   50 - (mouseY - height) * 0.07
+    // }%`
 
-    container.style.backgroundPosition = depth
+    // container.style.backgroundPosition = depth
+
+    return false
   }
 }
 
@@ -260,7 +259,7 @@ const insertPlanetData = async () => {
       }
     })
 
-    if (hasError) return
+    if (hasError) return false
 
     const inputPath = document.querySelector(
       '.inputValidate[name="path"]:checked',
