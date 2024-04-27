@@ -43,13 +43,17 @@ option {
   background-image: url('./assets/space-bg.jpg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 120vw 120vh;
+  background-size: 150vw 150vh;
   display: flex;
   height: 100vh;
   justify-content: center;
   overflow: hidden;
   position: relative;
   width: 100%;
+
+  @media only screen and (min-width: 1140px) {
+    background-size: 120vw 120vh;
+  }
 }
 
 .contentWrapper {

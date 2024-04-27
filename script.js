@@ -22,6 +22,7 @@ const formResult = document.querySelector('.formResult')
 const closeResultButton = document.querySelector('.closeResultButton')
 
 container.addEventListener('mousemove', parallax)
+container.addEventListener('touchmove', parallax)
 modalButton.addEventListener('click', openModal)
 modalBackground.addEventListener('click', closeModal)
 modalCloseButton.addEventListener('click', closeModal)
@@ -31,8 +32,8 @@ modalCloseButton.addEventListener('click', closeModal)
 function parallax(event) {
   const width = window.innerWidth / 2
   const height = window.innerHeight / 2
-  const mouseX = event.clientX
-  const mouseY = event.clientY
+  const mouseX = event.clientX || event.touches[0].clientX
+  const mouseY = event.clientY || event.touches[0].clientY
   const depth = `${50 - (mouseX - width) * 0.01}% ${
     50 - (mouseY - height) * 0.01
   }%`
