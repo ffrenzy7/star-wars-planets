@@ -22,7 +22,6 @@ const formResult = document.querySelector('.formResult')
 const closeResultButton = document.querySelector('.closeResultButton')
 
 container.addEventListener('mousemove', parallax)
-// container.addEventListener('touchmove', parallax)
 modalButton.addEventListener('click', openModal)
 modalBackground.addEventListener('click', closeModal)
 modalCloseButton.addEventListener('click', closeModal)
@@ -30,7 +29,6 @@ previousButton.addEventListener('mousedown', getSmaller)
 previousButton.addEventListener('mouseup', backToNormal)
 nextButton.addEventListener('mousedown', getSmaller)
 nextButton.addEventListener('mouseup', backToNormal)
-
 previousButton.addEventListener('touchstart', getSmaller)
 previousButton.addEventListener('touchend', backToNormal)
 nextButton.addEventListener('touchstart', getSmaller)
@@ -39,7 +37,7 @@ nextButton.addEventListener('touchend', backToNormal)
 // Background parallax
 
 function parallax(event) {
-  if (window.matchMedia('(min-width: 1140px)').matches) {
+  if (window.innerWidth >= 1140) {
     const width = window.innerWidth / 2
     const height = window.innerHeight / 2
     const mouseX = event.clientX
@@ -49,16 +47,6 @@ function parallax(event) {
     }%`
 
     container.style.backgroundPosition = depth
-  } else {
-    // const mouseX = event.touches[0].clientX
-    // const mouseY = event.touches[0].clientY
-    // const depth = `${50 - (mouseX - width) * 0.07}% ${
-    //   50 - (mouseY - height) * 0.07
-    // }%`
-
-    // container.style.backgroundPosition = depth
-
-    return false
   }
 }
 
@@ -203,29 +191,6 @@ const insertPlanetData = async () => {
   for (const navButton of navButtons) {
     navButton.addEventListener('click', navigate)
   }
-
-  // Swipe
-
-  // let swipeStartX = 0
-  // let swipeX = 0
-
-  // function swipeStart(event) {
-  //   swipeStartX = event.touches[0].clientX
-  // }
-
-  // function swipe(event) {
-  //   swipeX = event.touches[0].clientX
-  // }
-
-  // function swipeEnd() {
-  //   swipeStartX > swipeX ? next() : previous()
-  //   swipeX = 0
-  //   swipeStartX = 0
-  // }
-
-  // container.addEventListener('touchstart', swipeStart)
-  // container.addEventListener('touchmove', swipe)
-  // container.addEventListener('touchend', swipeEnd)
 
   // Form
 
