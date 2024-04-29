@@ -72,11 +72,11 @@ function closeModal() {
 // Arrow buttons
 
 function getSmaller(event) {
-  event.currentTarget.classList.add('clicked')
+  event.target.classList.add('clicked')
 }
 
 function backToNormal(event) {
-  event.currentTarget.classList.remove('clicked')
+  event.target.classList.remove('clicked')
 }
 
 // Inserting Planet Data

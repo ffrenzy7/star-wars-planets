@@ -72,12 +72,7 @@ option {
 
 .arrow {
   cursor: pointer;
-  transition: scale 0.3s ease;
   z-index: 1;
-
-  &.clicked {
-    scale: 0.8;
-  }
 
   &.previousButton {
     transform: translateX(calc(100% + 1rem)) rotate(-90deg);
@@ -98,8 +93,13 @@ option {
 
 .arrowIcon {
   filter: invert(1);
+  transition: scale 0.3s ease;
   user-select: none;
   width: 3rem;
+
+  &.clicked {
+    scale: 0.8;
+  }
 }
 
 .sliderNav {
