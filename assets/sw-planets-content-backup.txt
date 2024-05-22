@@ -1,0 +1,59 @@
+Tatooine
+Diameter: 10465km
+Rotation period: 23h
+Population: 200000
+Climate: arid
+
+Hoth
+Diameter: 7200km
+Rotation period: 23h
+Population: unknown
+Climate: frozen
+
+Naboo
+Diameter: 12120km
+Rotation period: 26h
+Population: 4500000000
+Climate: temperate
+
+Coruscant
+Diameter: 12240km
+Rotation period: 24h
+Population: 1000000000000
+Climate: temperate
+
+Kamino
+Diameter: 19720km
+Rotation period: 27h
+Population: 1000000000
+Climate: temperate
+
+Geonosis
+Diameter: 11370km
+Rotation period: 30h
+Population: 100000000000
+Climate: temperate, arid
+
+Mustafar
+Diameter: 4200km
+Rotation period: 36h
+Population: 20000
+Climate: hot
+
+Kashyyyk
+Diameter: 12765km
+Rotation period: 26h
+Population: 45000000
+Climate: tropical
+
+Felucia
+Diameter: 9100km
+Rotation period: 34h
+Population: 8500000
+Climate: hot, humid
+
+Dathomir
+Diameter: 10480km
+Rotation period: 24h
+Population: 5200
+Climate: temperate
